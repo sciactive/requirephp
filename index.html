@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>RequirePHP</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Dependency injection like RequireJS for PHP" />
+		<meta property="og:title" content="RequirePHP" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://requirephp.org/" />
+		<meta property="og:image" content="https://raw.githubusercontent.com/sciactive/2be-extras/master/logo/logo.png" />
+		<meta property="og:site_name" content="RequirePHP" />
+		<meta property="fb:admins" content="508999194" />
+		<meta property="og:description" content="Dependency injection like RequireJS for PHP" />
+		<link href="http://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<section id="header" class="dark">
+			<header>
+				<h1>RequirePHP</h1>
+				<p>Module loading like <a href="http://requirejs.org/">RequireJS</a> for PHP</p>
+			</header>
+			<footer>
+				<a href="#" class="button scrolly" title="Download"><span style="font-size: 3em;" class="fa fa-download"></span></a>
+				&nbsp;&nbsp;&nbsp;
+				<a href="https://github.com/sciactive/requirephp" class="button scrolly" title="RequirePHP on GitHub"><span style="font-size: 3em;" class="fa fa-github"></span></a>
+			</footer>
+		</section>
+
+		<!-- First -->
+		<section id="first" class="main">
+			<header>
+				<div class="container">
+					<h2>An implementation of dependency injection in PHP</h2>
+					<p>RequirePHP mimics RequireJS's API as closely as possible to allow easy module loading in PHP. At less than 100 lines,
+					RequirePHP provides a lot of value in a small package. It's so easy to use, you can be up and running in 5 minutes.</p>
+				</div>
+			</header>
+			<div class="content dark style1 featured">
+				<div class="container">
+					<div class="row">
+						<div class="4u">
+							<section>
+								<span class="feature-icon"><span class="fa fa-clock-o"></span></span>
+								<header>
+									<h3>Speedy</h3>
+								</header>
+								<p>RequirePHP is lean and fast. Minimal processing is done to allow applications to run at significantly
+								faster speeds than similar dependency injection containers.</p>
+							</section>
+						</div>
+						<div class="4u">
+							<section>
+								<span class="feature-icon"><span class="fa fa-github"></span></span>
+								<header>
+									<h3>Open Source</h3>
+								</header>
+								<p>RequirePHP is licensed under the LGPL version 3. This allows RequirePHP to be used in both open source
+								and proprietary software. No matter what you're building, you can use RequirePHP without worry.</p>
+							</section>
+						</div>
+						<div class="4u">
+							<section>
+								<span class="feature-icon"><span class="fa fa-coffee"></span></span>
+								<header>
+									<h3>Easy</h3>
+								</header>
+								<p>RequirePHP's API is so simple, you can learn it in the time it takes to guzzle one cup of coffee. If you
+								use RequireJS, then you already know how to use RequirePHP.</p>
+							</section>
+						</div>
+					</div>
+					<div class="row">
+						<div class="12u">
+							<footer>
+								<a href="https://github.com/sciactive/requirephp" class="button scrolly">RequirePHP on GitHub</a>
+							</footer>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Third -->
+		<section id="third" class="main">
+			<header>
+				<div class="container">
+					<h2>Easy to Integrate</h2>
+					<p>Your app is already ready to integrate with RequirePHP. It's as easy as wrapping your files' include calls with a
+					list of dependencies. Quit worrying about when things are run, and get back to just writing code. All the cool kids
+					are already using <a href="http://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>.</p>
+				</div>
+			</header>
+			<div class="content dark style3">
+				<div class="container">
+					<div class="row">
+						<div class="4u">
+							<h3>Why Use Dependency Injection</h3>
+							<p>Because dependency injection doesn't require any change in code behavior it can be applied to legacy code as a refactoring. The result is more independent clients that are easier to unit test in isolation using stubs or mock objects that simulate other objects not under test. This ease of testing is often the first benefit noticed when using dependency injection.</p>
+						</div>
+						<div class="4u">
+							<p>Dependency injection allows a client to remove all knowledge of a concrete implementation that it needs to use. This helps isolate the client from the impact of design changes and defects. It promotes reusability, testability and maintainability.</p>
+							<p>Dependency injection can be used to externalize a system's configuration details into configuration files allowing the system to be reconfigured without recompilation. Separate configurations can be written for different situations that require different implementations of components. This includes, but is not limited to, testing.</p>
+						</div>
+						<div class="4u">
+							<p>Reduction of boilerplate code in the application objects since all work to initialize or set up dependencies is handled by a provider component.</p>
+							<p>Dependency injection allows concurrent or independent development. Two developers can independently develop classes that use each other, while only needing to know the interface the classes will communicate through. Plugins are often developed by third party shops that never even talk to the developers who created the product that uses the plugins.</p>
+							<footer>
+								<a href="http://en.wikipedia.org/wiki/Dependency_injection#Advantages" class="button scrolly">This list is from WikiPedia</a>
+							</footer>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<ul class="icons">
+				<li><a href="http://twitter.com/2be_io" class="fa fa-twitter solo"><span>Twitter</span></a></li>
+				<li><a href="http://2be.io" class="fa fa-globe solo"><span>2be.oi</span></a></li>
+				<li><a href="https://github.com/sciactive/requirephp" class="fa fa-github solo"><span>GitHub</span></a></li>
+			</ul>
+			<div class="content">
+				RequirePHP is part of the 2be.io project.
+			</div>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; SciActive.com. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</body>
+</html>
