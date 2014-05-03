@@ -9,7 +9,7 @@
  * @license https://www.gnu.org/licenses/lgpl.html
  * @author Hunter Perrin <hperrin@gmail.com>
  * @copyright SciActive.com
- * @link http://sciactive.com/
+ * @link http://requirephp.org
  */
 
 define('REQUIREPHP_MAX_DEPTH', 80);
