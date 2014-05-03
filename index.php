@@ -13,7 +13,7 @@ $require(array('test'), function($test){
 
 
 // Define test.
-$require('test', array('depend', 'depend2'), function($d, $d2){
+$require('test', array('depend', 'depend3'), function($d, $d2){
 	if (!$d || !$d2)
 		echo '<p>Depend isn\'t working!!</p>';
 	class test {
@@ -33,15 +33,19 @@ $require('depend', array(), function(){
 	return true;
 });
 
+// Test aliases
+$require->alias('depend3', 'depend2');
 $require('depend2', array(), function(){
-	return true;
 	// This is used to check that dependencies are being loaded correctly.
 	//return false;
+	return true;
 });
 
 
 // Use test again.
-$require(array('test'), function($test)use($require){
+$require->alias('toast', 'test');
+$require->alias('taste', 'toast');
+$require(array('taste'), function($test)use($require){
 	// Check the require('thing') syntax.
 	$d = $require('depend');
 	$d2 = $require('depend2');

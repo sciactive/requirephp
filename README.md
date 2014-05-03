@@ -39,10 +39,16 @@ $require('test', array(), function(){
 });
 ```
 
-You can keep using the same module in other code.
+You can create aliases to modules (and other aliases).
 
 ```php
-$require(array('test'), function($test){
+$require->alias('testing', 'test');
+```
+
+You can keep using the same module in other code. This function uses the alias from above.
+
+```php
+$require(array('testing'), function($test){
 	$test->talk(); // Prints '<p>Hello, world.</p>'.
 });
 ```

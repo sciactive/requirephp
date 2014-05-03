@@ -5,7 +5,7 @@
  * An implementation of dependency injection (like RequireJS) in PHP. Written by
  * Hunter Perrin for 2be.io.
  *
- * @version 0.0.1alpha
+ * @version 0.0.2alpha
  * @license https://www.gnu.org/licenses/lgpl.html
  * @author Hunter Perrin <hperrin@gmail.com>
  * @copyright SciActive.com
@@ -17,14 +17,15 @@ define('REQUIREPHP_MAX_DEPTH', 80);
 class RequirePHP {
 	private $modules = array();
 	private $functions = array();
+	private $aliases = array();
 	private $depth = 0;
 
-	public function &__invoke($arg1, $arg2 = null, $arg3 = null) {
-		if (!isset($arg2) && !isset($arg3)) {
+	public function &__invoke($arg1 = null, $arg2 = null, $arg3 = null) {
+		if (isset($arg1) && !isset($arg2) && !isset($arg3)) {
 			// Calling require('name') to get the object.
-			if (!$this->runModule($arg1)) {
+			$arg1 = $this->parseAlias($arg1);
+			if (!$this->runModule($arg1))
 				throw new RequireModuleFailedException("Can't load module $arg1.");
-			}
 			return $this->modules[$arg1]['return'];
 		} elseif (!isset($arg3) && is_array($arg1) && is_callable($arg2)) {
 			// Calling require(['dependency'], function(){}) to run a function when dependencies are met.
@@ -36,14 +37,30 @@ class RequirePHP {
 		$this->runFunctions();
 	}
 
-	private function runModule($name) {
-		if (!isset($this->modules[$name])) {
+	public function alias($name, $target) {
+		$name = "$name";
+		$target = "$target";
+		if (empty($name) || empty($target))
 			return false;
-		}
+		$this->aliases[$name] = $target;
+		return true;
+	}
+
+	private function parseAlias($name) {
+		if (isset($this->modules[$name]))
+			return $name;
+		if (isset($this->aliases[$name]))
+			return $this->parseAlias($this->aliases[$name]);
+		return $name;
+	}
+
+	private function runModule($name) {
+		$name = $this->parseAlias($name);
+		if (!isset($this->modules[$name]))
+			return false;
 		// If we've already loaded this module, we're golden.
-		if (key_exists('return', $this->modules[$name])) {
+		if (key_exists('return', $this->modules[$name]))
 			return true;
-		}
 		// Keep track of how deep we're going.
 		$this->depth++;
 		if ($this->depth > REQUIREPHP_MAX_DEPTH) {
@@ -54,6 +71,7 @@ class RequirePHP {
 		$arguments = array();
 		if (!empty($this->modules[$name]['requires'])) {
 			foreach ($this->modules[$name]['requires'] as $require) {
+				$require = $this->parseAlias($require);
 				if (!$this->runModule($require)) {
 					$this->depth--;
 					return false;
@@ -76,14 +94,12 @@ class RequirePHP {
 		foreach ($this->functions as $key => $function) {
 			// Load the required modules.
 			$arguments = array();
-			if (!empty($function['requires'])) {
-				foreach ($function['requires'] as $require) {
-					if (!$this->runModule($require)) {
-						continue 2;
-					}
-					// Add this return value to the arguments. We'll pass it to the callback.
-					$arguments[] = $this->modules[$require]['return'];
-				}
+			foreach ($function['requires'] as $require) {
+				$require = $this->parseAlias($require);
+				if (!$this->runModule($require))
+					continue 2;
+				// Add this return value to the arguments. We'll pass it to the callback.
+				$arguments[] = $this->modules[$require]['return'];
 			}
 			call_user_func_array($function['function'], $arguments);
 			unset($this->functions[$key]);
