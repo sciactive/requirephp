@@ -52,6 +52,11 @@ $require(array('test'), function($test)use($require){
 });
 
 
+// Use test outside of a closure.
+$test = $require('test');
+$test->talk();
+
+
 // Let's test circular dependencies.
 try {
 	$require('circ1', array('circ2'), function($circ2){
@@ -64,5 +69,5 @@ try {
 		echo '<p>This shouldn\'t have run!!</p>';
 	});
 } catch (RequireTooDeepException $e) {
-	echo '<p>Circular dependecies don\'t crash the script!! Yay!! '.$e->getMessage().'</p>' ;
+	echo '<p>Circular dependencies don\'t crash the script!! Yay!! '.$e->getMessage().'</p>' ;
 }
