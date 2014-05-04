@@ -32,9 +32,9 @@ $require('EntryPoint', array(), function(){
 			}
 		}
 	}
-    return function($model1, $model2){
-        return new EntryPoint($model1, $model2);
-    };
+	return function($model1, $model2){
+		return new EntryPoint($model1, $model2);
+	};
 });
 
 // Model1.php
@@ -44,9 +44,9 @@ $require('Model1', array(), function(){
 			return @\file_get_contents('http://google.com/');
 		}
 	}
-    return function(){
-        return new Model1();
-    };
+	return function(){
+		return new Model1();
+	};
 });
 
 // Model1Test.php
@@ -56,9 +56,9 @@ $require('Model1Test', array(), function(){
 			return "copy of known good Google html";
 		}
 	}
-    return function(){
-        return new Model1();
-    };
+	return function(){
+		return new Model1();
+	};
 });
 
 // Model2.php
@@ -74,9 +74,9 @@ $require('Model2', array(), function(){
 			return $this->helper->getInput() != 'badthing';
 		}
 	}
-    return function($helper){
-        return new Model2($helper);
-    };
+	return function($helper){
+		return new Model2($helper);
+	};
 });
 
 // Helper.php
@@ -86,9 +86,9 @@ $require('Helper', array(), function(){
 			return $_REQUEST['input'];
 		}
 	}
-    return function(){
-        return new Helper();
-    };
+	return function(){
+		return new Helper();
+	};
 });
 
 // HelperTest.php
@@ -98,14 +98,14 @@ $require('HelperTest', array(), function(){
 			return 'goodthing';
 		}
 	}
-    return function(){
-        return new Helper();
-    };
+	return function(){
+		return new Helper();
+	};
 });
 
 // Composition root. Probably your main script.
 $require(array(), function()use($require, $test){
-    $EntryPoint = $require("EntryPoint");
+	$EntryPoint = $require("EntryPoint");
 
 	// Here is where you choose what to pass to your EntryPoint.
 	// In this case, we'll be passing real classes vs test classes.
@@ -123,6 +123,6 @@ $require(array(), function()use($require, $test){
 		echo '<a href="?test=false">Prod mode.</a><br>';
 	}
 
-    $entryPoint = $EntryPoint($Model1(), $Model2($Helper()));
-    $entryPoint->start();
+	$entryPoint = $EntryPoint($Model1(), $Model2($Helper()));
+	$entryPoint->start();
 });
