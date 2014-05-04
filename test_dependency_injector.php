@@ -1,6 +1,6 @@
 <?php
 // An example of how you could use RequirePHP for dependency injection.
-// Keep in mind, this isn't something you'd do in production, just an example.
+// Keep in mind, this isn't necessarily something you'd do in production, just an example.
 
 // Try giving the query string ?input=badthing to this script in prod mode.
 // Also try turning off your network connection, so the script can't reach Google.
