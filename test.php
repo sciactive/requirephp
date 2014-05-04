@@ -57,8 +57,27 @@ $require(array('taste'), function($test)use($require){
 
 
 // Use test outside of a closure.
-$test = $require('test');
-$test->talk();
+$require('test')->talk();
+
+
+// Testing chaining.
+$require('chain', array('message'), function($message){
+	class chain {
+		private $message;
+		public function __construct($message) {
+			$this->message = $message;
+		}
+		public function talk() {
+			echo $this->message;
+		}
+	}
+	return new chain($message);
+})
+->call('message', array(), function(){
+	return '<p>Chaining works.</p>';
+})
+->alias('load', 'chain')
+->call('load')->talk();
 
 
 // Let's test circular dependencies.

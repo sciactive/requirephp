@@ -59,3 +59,38 @@ You can also retrieve modules outside of a closure. However, if this module is n
 $test = $require('test');
 $test->talk(); // Prints '<p>Hello, world.</p>'.
 ```
+
+Service Location
+----------------
+
+The repository contains [an example](https://github.com/sciactive/requirephp/blob/master/test_service_locator.php) of using RequirePHP as a service loactor.
+
+Dependency Injection
+--------------------
+
+The repository contains [an example](https://github.com/sciactive/requirephp/blob/master/test_dependency_injector.php) of using RequirePHP as a dependency injector.
+
+Chaining
+--------
+
+Chaining allows you to make several calls to RequirePHP in the same statement. You can use chaining by calling call() on the return value of RequirePHP and its alias method.
+
+```php
+$require('chain', array('message'), function($message){
+	class chain {
+		private $message;
+		public function __construct($message) {
+			$this->message = $message;
+		}
+		public function talk() {
+			echo $this->message;
+		}
+	}
+	return new chain($message);
+})
+->call('message', array(), function(){
+	return '<p>Chaining works.</p>';
+})
+->alias('load', 'chain')
+->call('load')->talk(); // Prints '<p>Chaining works.</p>'.
+```

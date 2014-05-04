@@ -5,7 +5,7 @@
  * An implementation of dependency injection (like RequireJS) in PHP. Written by
  * Hunter Perrin for 2be.io.
  *
- * @version 0.0.2alpha
+ * @version 1.0.0beta1
  * @license https://www.gnu.org/licenses/lgpl.html
  * @author Hunter Perrin <hperrin@gmail.com>
  * @copyright SciActive.com
@@ -21,20 +21,22 @@ class RequirePHP {
 	private $depth = 0;
 
 	public function &__invoke($arg1 = null, $arg2 = null, $arg3 = null) {
-		if (isset($arg1) && !isset($arg2) && !isset($arg3)) {
-			// Calling require('name') to get the object.
+		if (isset($arg1) && !isset($arg2) && !isset($arg3)) { // Calling require('name') to get the object.
 			$arg1 = $this->parseAlias($arg1);
 			if (!$this->runModule($arg1))
 				throw new RequireModuleFailedException("Can't load module $arg1.");
 			return $this->modules[$arg1]['return'];
-		} elseif (!isset($arg3) && is_array($arg1) && is_callable($arg2)) {
-			// Calling require(['dependency'], function(){}) to run a function when dependencies are met.
+		} elseif (!isset($arg3) && is_array($arg1) && is_callable($arg2)) { // Calling require(['dependency'], function(){}) to run a function when dependencies are met.
 			$this->functions[] = array('requires' => $arg1, 'function' => $arg2);
-		} elseif (is_string($arg1) && is_array($arg2) && is_callable($arg3)) {
-			// Calling require('name', ['dependency'], function(){}) to declare a named module.
+		} elseif (is_string($arg1) && is_array($arg2) && is_callable($arg3)) { // Calling require('name', ['dependency'], function(){}) to declare a named module.
 			$this->modules[$arg1] = array('requires' => $arg2, 'function' => $arg3);
 		}
 		$this->runFunctions();
+		return $this;
+	}
+
+	public function call() {
+		return call_user_func_array($this, func_get_args());
 	}
 
 	public function alias($name, $target) {
@@ -43,7 +45,7 @@ class RequirePHP {
 		if (empty($name) || empty($target))
 			return false;
 		$this->aliases[$name] = $target;
-		return true;
+		return $this;
 	}
 
 	private function parseAlias($name) {
@@ -58,11 +60,9 @@ class RequirePHP {
 		$name = $this->parseAlias($name);
 		if (!isset($this->modules[$name]))
 			return false;
-		// If we've already loaded this module, we're golden.
-		if (key_exists('return', $this->modules[$name]))
+		if (key_exists('return', $this->modules[$name])) // If we've already loaded this module, we're golden.
 			return true;
-		// Keep track of how deep we're going.
-		$this->depth++;
+		$this->depth++; // Keep track of how deep we're going.
 		if ($this->depth > REQUIREPHP_MAX_DEPTH) {
 			$this->depth--;
 			throw new RequireTooDeepException("Proceeded too deeply down the rabbit hole. Max require depth is ".REQUIREPHP_MAX_DEPTH.".");
@@ -76,8 +76,7 @@ class RequirePHP {
 					$this->depth--;
 					return false;
 				}
-				// Add this return value to the arguments. We'll pass it to the callback.
-				$arguments[] = $this->modules[$require]['return'];
+				$arguments[] = $this->modules[$require]['return']; // Add this return value to the arguments. We'll pass it to the callback.
 			}
 		}
 		if (is_callable($this->modules[$name]['function'])) {
@@ -98,8 +97,7 @@ class RequirePHP {
 				$require = $this->parseAlias($require);
 				if (!$this->runModule($require))
 					continue 2;
-				// Add this return value to the arguments. We'll pass it to the callback.
-				$arguments[] = $this->modules[$require]['return'];
+				$arguments[] = $this->modules[$require]['return']; // Add this return value to the arguments. We'll pass it to the callback.
 			}
 			call_user_func_array($function['function'], $arguments);
 			unset($this->functions[$key]);
