@@ -1,7 +1,7 @@
 RequirePHP
 ==========
 
-An implementation of dependency injection (like RequireJS) in PHP.
+An implementation of dependency injection and service locator (like RequireJS) in PHP.
 
 Getting Started
 ---------------
@@ -34,7 +34,7 @@ $require('test', array(), function(){
 	}
 
 	// Returning a new instantiation is important if you are
-	// providing functionality.
+	// providing a service.
 	return new test();
 });
 ```
@@ -45,7 +45,7 @@ You can create aliases to modules (and other aliases).
 $require->alias('testing', 'test');
 ```
 
-You can keep using the same module in other code. This function uses the alias from above.
+You can keep using the same instance in other code, using RequirePHP as a service locator. This function uses the alias from above.
 
 ```php
 $require(array('testing'), function($test){
