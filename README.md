@@ -63,7 +63,7 @@ $test->talk(); // Prints '<p>Hello, world.</p>'.
 Service Location
 ----------------
 
-The repository contains [an example](https://github.com/sciactive/requirephp/blob/master/test_service_locator.php) of using RequirePHP as a service loactor.
+The repository contains [an example](https://github.com/sciactive/requirephp/blob/master/test_service_locator.php) of using RequirePHP as a service locator.
 
 Dependency Injection
 --------------------
