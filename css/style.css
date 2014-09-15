@@ -34,7 +34,7 @@
 		font-weight: 100;
 		line-height: 1.5em;
 	}
-	
+
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
 		{
 			color: inherit;
@@ -50,19 +50,19 @@
 		{
 			color: #fff;
 		}
-		
+
 	strong, b
 	{
 		font-weight: 400;
 		color: inherit;
 	}
-	
+
 		.dark strong, .dark b
 		{
 			color: #fff;
 			color: rgba(255,255,255,0.85);
 		}
-	
+
 	em, i
 	{
 		font-style: italic;
@@ -79,7 +79,7 @@
 		-ms-transition: border-bottom-color 0.25s ease-in-out;
 		transition: border-bottom-color 0.25s ease-in-out;
 	}
-	
+
 		a:hover
 		{
 			border-bottom-color: rgba(0,0,0,0);
@@ -102,14 +102,14 @@
 		top: 0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	sup
 	{
 		position: relative;
 		top: -0.5em;
 		font-size: 0.8em;
 	}
-	
+
 	hr
 	{
 		border: 0;
@@ -121,7 +121,7 @@
 		{
 			border-top-color: rgba(255,255,255,0.5);
 		}
-	
+
 	blockquote
 	{
 		border-left: solid 0.25em #e6e6e6;
@@ -133,12 +133,12 @@
 		{
 			border-left-color: rgba(255,255,255,0.5);
 		}
-	
+
 	p, ul, ol, dl, table
 	{
 		margin-bottom: 1em;
 	}
-	
+
 	p
 	{
 		text-align: justify;
@@ -148,7 +148,7 @@
 	{
 		margin-bottom: 1em;
 	}
-	
+
 		header h1,
 		header h2,
 		header h3,
@@ -158,14 +158,14 @@
 		{
 			margin: 0;
 		}
-	
+
 		header p
 		{
 			display: block;
 			margin: 0;
 			padding: 0.25em 0 0.5em 0;
 		}
-		
+
 	footer
 	{
 		padding-top: 1.5em;
@@ -175,25 +175,25 @@
 	{
 		clear: both;
 	}
-	
+
 	.featured
 	{
 		text-align: center;
 	}
-	
+
 		.featured p
 		{
 			text-align: center;
 		}
 
 	/* Sections/Articles */
-	
+
 		section,
 		article
 		{
 			margin-bottom: 3em;
 		}
-		
+
 		section > :last-child,
 		article > :last-child
 		{
@@ -231,7 +231,7 @@
 				height: 100%;
 				background: url('images/overlay.png');
 			}
-		
+
 			.image img
 			{
 				display: block;
@@ -245,19 +245,19 @@
 				width: 100%;
 				margin: 0 0 2em 0;
 			}
-			
+
 			.image.full
 			{
 				display: block;
 				width: 100%;
 			}
-			
+
 			.image.left
 			{
 				float: left;
 				margin: 0 2em 2em 0;
 			}
-			
+
 			.image.centered
 			{
 				display: block;
@@ -277,23 +277,23 @@
 			list-style: disc;
 			padding-left: 1em;
 		}
-		
+
 			ul.default li
 			{
 				padding-left: 0.5em;
-			}		
+			}
 
 		ul.icons
 		{
 			cursor: default;
-		}	
-		
+		}
+
 			ul.icons li
 			{
 				display: inline-block;
 				padding-left: 0.75em;
 			}
-			
+
 				ul.icons a
 				{
 					display: inline-block;
@@ -321,7 +321,7 @@
 		{
 			cursor: default;
 		}
-		
+
 			ul.menu li
 			{
 				display: inline-block;
@@ -330,7 +330,7 @@
 				padding: 0 0 0 0.5em;
 				margin: 0 0 0 0.5em;
 			}
-			
+
 			ul.menu li:first-child
 			{
 				border-left: 0;
@@ -342,13 +342,13 @@
 		{
 			cursor: default;
 		}
-		
+
 			ul.actions li
 			{
 				display: inline-block;
 				margin: 0 0 0 0.5em;
 			}
-			
+
 			ul.actions li:first-child
 			{
 				margin-left: 0;
@@ -370,17 +370,17 @@
 		form
 		{
 		}
-		
+
 			form .actions
 			{
 				margin-bottom: 0;
 			}
-			
+
 			form label
 			{
 				display: block;
 			}
-		
+
 			form input.text,
 			form select,
 			form textarea
@@ -414,13 +414,13 @@
 				{
 					position: relative;
 				}
-				
+
 					form .select select
 					{
 						text-indent: 0.01px;
 						text-overflow: '';
    					}
-				
+
 					form .select:before
 					{
 						content: '';
@@ -458,17 +458,17 @@
 			{
 				min-height: 13em;
 			}
-			
+
 			form select
 			{
 				position: relative;
 			}
-			
+
 				form select option
 				{
 					color: #000;
 				}
-			
+
 			form ::-moz-focus-inner
 			{
 				border: 0;
@@ -500,7 +500,7 @@
 					background: rgba(255,255,255,0.1);
 					box-shadow: inset 0 0 0 1px #fff;
 				}
-			
+
 			.dark form select
 			{
 			}
@@ -510,14 +510,14 @@
 			.dark form :-moz-placeholder { color: rgba(255,255,255,0.85) !important; }
 			.dark form ::-moz-placeholder { color: rgba(255,255,255,0.85) !important; }
 			.dark form :-ms-input-placeholder { color: rgba(255,255,255,0.85) !important; }
-			
+
 	/* Tables */
-	
+
 		table
 		{
 			width: 100%;
 		}
-		
+
 			table.default
 			{
 				width: 100%;
@@ -532,23 +532,23 @@
 				{
 					border: solid 1px #e6e6e6;
 				}
-			
+
 				table.default tbody tr:nth-child(2n+2)
 				{
 					background: #f8f8f8;
 				}
-				
+
 				table.default td
 				{
 					padding: 0.5em 1em 0.5em 1em;
 				}
-				
+
 				table.default th
 				{
 					text-align: left;
 					padding: 0.5em 1em 1em 1em;
 				}
-			
+
 				table.default thead
 				{
 				}
@@ -556,12 +556,12 @@
 				table.default tfoot
 				{
 				}
-				
+
 					table.default tfoot td
 					{
 						padding-top: 1em;
 					}
-				
+
 				table.default tbody
 				{
 				}
@@ -573,19 +573,19 @@
 				.dark table.default tbody
 				{
 				}
-			
+
 					.dark table.default tbody tr
 					{
 						border-color: rgba(255,255,255,0.5);
 					}
-				
+
 					.dark table.default tbody tr:nth-child(2n+2)
 					{
 						background: rgba(255,255,255,0.1);
 					}
-	
+
 	/* Buttons */
-		
+
 		.button
 		{
 			-webkit-appearance: none;
@@ -610,14 +610,14 @@
 			{
 				background: #4f4f4f;
 			}
-			
+
 		.button.alt
 		{
 			color: inherit;
 			box-shadow: inset 0 0 0 1px #e6e6e6;
 			background: none;
 		}
-		
+
 			.button.alt:hover
 			{
 				background: rgba(0,0,0,0.025);
@@ -629,7 +629,7 @@
 				box-shadow: inset 0 0 0 1px #fff;
 				color: #fff;
 			}
-			
+
 				.dark .button:hover
 				{
 					background: rgba(255,255,255,0.25);
@@ -657,7 +657,7 @@
 			margin-bottom: 2.75em;
 			cursor: default;
 		}
-		
+
 			.feature-icon .fa
 			{
 				display: inline-block;
@@ -669,7 +669,7 @@
 				color: #666;
 				line-height: 2.1em;
 			}
-		
+
 			.feature-icon:before
 			{
 				content: '';
@@ -706,7 +706,7 @@
 					box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
 					color: #fff;
 				}
-			
+
 				.dark .feature-icon:before
 				{
 					background: rgba(255,255,255,0.5);
@@ -724,7 +724,7 @@
 			color: #aaa;
 			color: rgba(255,255,255,0.65);
 		}
-			
+
 /*********************************************************************************/
 /* Icons                                                                         */
 /* Powered by Font Awesome by Dave Gandy | http://fontawesome.io                 */
@@ -739,12 +739,12 @@
 		.fa.solo
 		{
 		}
-		
+
 			.fa.solo span
 			{
 				display: none;
 			}
-			
+
 		.fa:before
 		{
 			display:inline-block;
@@ -1168,7 +1168,7 @@
 		text-align: center;
 		color: #fff;
 	}
-	
+
 		#header:after
 		{
 			content: '';
@@ -1179,7 +1179,7 @@
 			height: 100%;
 			background: url('images/overlay.png');
 		}
-	
+
 		#header > header,
 		#header > header p,
 		#header > footer
@@ -1188,18 +1188,18 @@
 			position: relative;
 			z-index: 1;
 		}
-		
+
 		#header header
 		{
 		}
-		
+
 			#header header h1
 			{
 				font-size: 2.25em;
 				line-height: 1.25em;
 				margin-bottom: 0;
 			}
-			
+
 			#header header p
 			{
 				margin-top: 1.25em;
@@ -1208,12 +1208,12 @@
 				font-size: 1.25em;
 				line-height: 1.5em;
 			}
-			
+
 		#header footer
 		{
 			padding-top: 1.5em;
 		}
-	
+
 /*********************************************************************************/
 /* Main Sections                                                                 */
 /*********************************************************************************/
@@ -1223,7 +1223,7 @@
 		position: relative;
 		margin: 0;
 	}
-	
+
 		.main > header
 		{
 			background: #fff;
@@ -1231,14 +1231,14 @@
 			padding: 5em 0 5em 0;
 			margin: 0;
 		}
-		
+
 			.main > header h2
 			{
 				font-size: 2.25em;
 				font-weight: 100;
 				margin-bottom: 0;
 			}
-		
+
 			.main > header p
 			{
 				margin: 2em 0 0 0;
@@ -1264,29 +1264,22 @@
 			{
 				background: #433;
 			}
-			
+
 			.main > .content.style1
 			{
-				background:	url('images/bgtr.svg') top right no-repeat,
-							url('images/bgbl.svg') bottom left no-repeat,
-							url('images/bgbl.svg') bottom left no-repeat,
-							url('images/overlay.png'),
+				background:	url('images/overlay.png'),
 							linear-gradient(45deg, #b39c68, #a56365, #412e4c);
 			}
 
 			.main > .content.style2
 			{
-				background:	url('images/bgtr.svg') top right no-repeat,
-							url('images/bgbl.svg') bottom left no-repeat,
-							url('images/overlay.png'),
+				background:	url('images/overlay.png'),
 							linear-gradient(45deg, #384955, #655361, #85505f);
 			}
 
 			.main > .content.style3
 			{
-				background:	url('images/bgtr.svg') top right no-repeat,
-							url('images/bgbl.svg') bottom left no-repeat,
-							url('images/overlay.png'),
+				background:	url('images/overlay.png'),
 							linear-gradient(45deg, #5f796b, #3a4e59, #2f394e);
 			}
 
@@ -1299,7 +1292,7 @@
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/
-	
+
 	#footer
 	{
 		position: relative;
@@ -1308,27 +1301,27 @@
 		padding: 4em 0 8em 0;
 		box-shadow: inset 0 1px 0 0 #e6e6e6;
 	}
-	
+
 		#footer .copyright
 		{
 			margin-top: 3em;
 			font-size: 0.8em;
 			color: #aaa;
 		}
-		
+
 			#footer .copyright a
 			{
 				color: inherit;
 			}
-			
+
 		#footer ul.icons
 		{
-		}	
-		
+		}
+
 			#footer ul.icons li
 			{
 			}
-			
+
 				#footer ul.icons a
 				{
 					box-shadow: inset 0 0 0 1px #d6d6d6;
