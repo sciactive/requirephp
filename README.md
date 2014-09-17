@@ -1,10 +1,8 @@
-RequirePHP
-==========
+# <img alt="logo" src="https://raw.githubusercontent.com/sciactive/2be-extras/master/logo/product-icon-40-bw.png" align="top" /> RequirePHP
 
 An implementation of dependency injection and service locator (like RequireJS) in PHP.
 
-Getting Started
----------------
+## Getting Started
 
 All you need to do is include the require.php file, and instantiate your container.
 
@@ -60,18 +58,15 @@ $test = $require('test');
 $test->talk(); // Prints '<p>Hello, world.</p>'.
 ```
 
-Service Location
-----------------
+## Service Location
 
 The repository contains [an example](https://github.com/sciactive/requirephp/blob/master/test_service_locator.php) of using RequirePHP as a service locator.
 
-Dependency Injection
---------------------
+## Dependency Injection
 
 The repository contains [an example](https://github.com/sciactive/requirephp/blob/master/test_dependency_injector.php) of using RequirePHP as a dependency injector.
 
-Chaining
---------
+## Chaining
 
 Chaining allows you to make several calls to RequirePHP in the same statement. You can use chaining by calling call() on the return value of RequirePHP and its alias method.
 
