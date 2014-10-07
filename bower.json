@@ -1,0 +1,16 @@
+{
+	"name": "requirephp",
+	"version": "1.0.0",
+	"main": "require.php",
+	"ignore": [
+		"test*",
+		"composer.json"
+	],
+	"keywords": [
+		"dependency injection",
+		"dependency injector",
+		"service location",
+		"service locator",
+		"amd"
+	]
+}

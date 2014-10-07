@@ -1,0 +1,32 @@
+{
+    "name": "sciactive/requirephp",
+    "description": "An implementation of dependency injection (like RequireJS) in PHP.",
+    "version": "1.0.0",
+    "type": "library",
+    "keywords": [
+		"dependency injection",
+		"dependency injector",
+		"service location",
+		"service locator",
+		"amd"
+	],
+    "homepage": "http://requirephp.org/",
+    "time": "2014-10-07",
+    "license": "LGPL",
+    "authors": [
+        {
+            "name": "Hunter Perrin",
+            "email": "hunter@sciactive.com",
+            "homepage": "https://github.com/hperrin",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/sciactive/requirephp/issues",
+        "wiki": "https://github.com/sciactive/requirephp/wiki",
+        "source": "https://github.com/sciactive/requirephp"
+    },
+    "archive": {
+        "exclude": ["bower.json", "test*"]
+    }
+}

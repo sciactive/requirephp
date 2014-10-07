@@ -5,7 +5,7 @@
  * An implementation of dependency injection and service location (like
  * RequireJS) in PHP. Written by Hunter Perrin for 2be.io.
  *
- * @version 1.0.0beta1
+ * @version 1.0.0
  * @license https://www.gnu.org/licenses/lgpl.html
  * @author Hunter Perrin <hperrin@gmail.com>
  * @copyright SciActive.com
