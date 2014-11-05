@@ -4,16 +4,15 @@
 //define('REQUIREPHP_MAX_DEPTH', 600);
 
 require("require.php");
-$require = new RequirePHP();
 
 // Use test.
-$require(array('test'), function($test){
+RPHP::_(array('test'), function($test){
 	$test->value = '<p>It works!!</p>';
 });
 
 
 // Define test.
-$require('test', array('depend', 'depend3'), function($d, $d2){
+RPHP::_('test', array('depend', 'depend3'), function($d, $d2){
 	if (!$d || !$d2)
 		echo '<p>Depend isn\'t working!!</p>';
 	class test {
@@ -29,13 +28,13 @@ $require('test', array('depend', 'depend3'), function($d, $d2){
 
 
 // Define the dependencies of test.
-$require('depend', array(), function(){
+RPHP::_('depend', array(), function(){
 	return true;
 });
 
 // Test aliases
-$require->alias('depend3', 'depend2');
-$require('depend2', array(), function(){
+RPHP::alias('depend3', 'depend2');
+RPHP::_('depend2', array(), function(){
 	// This is used to check that dependencies are being loaded correctly.
 	//return false;
 	return true;
@@ -43,12 +42,12 @@ $require('depend2', array(), function(){
 
 
 // Use test again.
-$require->alias('toast', 'test');
-$require->alias('taste', 'toast');
-$require(array('taste'), function($test)use($require){
+RPHP::alias('toast', 'test');
+RPHP::alias('taste', 'toast');
+RPHP::_(array('taste'), function($test){
 	// Check the require('thing') syntax.
-	$d = $require('depend');
-	$d2 = $require('depend2');
+	$d = RPHP::_('depend');
+	$d2 = RPHP::_('depend2');
 	if (!$d || !$d2)
 		echo '<p>Depend isn\'t working!!</p>';
 	// This makes sure we're getting the same instance, and not a copy, of $test.
@@ -57,38 +56,18 @@ $require(array('taste'), function($test)use($require){
 
 
 // Use test outside of a closure.
-$require('test')->talk();
-
-
-// Testing chaining.
-$require('chain', array('message'), function($message){
-	class chain {
-		private $message;
-		public function __construct($message) {
-			$this->message = $message;
-		}
-		public function talk() {
-			echo $this->message;
-		}
-	}
-	return new chain($message);
-})
-->call('message', array(), function(){
-	return '<p>Chaining works.</p>';
-})
-->alias('load', 'chain')
-->call('load')->talk();
+RPHP::_('test')->talk();
 
 
 // Let's test circular dependencies.
 try {
-	$require('circ1', array('circ2'), function($circ2){
+	RPHP::_('circ1', array('circ2'), function($circ2){
 		return;
 	});
-	$require('circ2', array('circ1'), function($circ1){
+	RPHP::_('circ2', array('circ1'), function($circ1){
 		return;
 	});
-	$require(array('circ1'), function($circ1){
+	RPHP::_(array('circ1'), function($circ1){
 		echo '<p>This shouldn\'t have run!!</p>';
 	});
 } catch (RequireTooDeepException $e) {

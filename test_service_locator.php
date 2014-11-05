@@ -2,10 +2,9 @@
 // An example of how you could use RequirePHP as a service locator.
 
 require("require.php");
-$require = new RequirePHP();
 
 // Define service.
-$require('service', array(), function(){
+RPHP::_('service', array(), function(){
 	class service {
 		private $value = 0;
 
@@ -22,12 +21,12 @@ $require('service', array(), function(){
 });
 
 // Locate the service.
-$require(array('service'), function(service $service){
+RPHP::_(array('service'), function(service $service){
 	$service->increment();
 });
 
 // Locate the service again.
-$require(array('service'), function(service $service){
+RPHP::_(array('service'), function(service $service){
 	$service->increment();
 	echo 'You should see "2".<br>';
 	$service->printOut();

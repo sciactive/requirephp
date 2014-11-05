@@ -6,11 +6,10 @@
 // Also try turning off your network connection, so the script can't reach Google.
 
 require("require.php");
-$require = new RequirePHP();
 $test = $_REQUEST['test'] == "true";
 
 // EntryPoint.php
-$require('EntryPoint', array(), function(){
+RPHP::_('EntryPoint', array(), function(){
 	class EntryPoint {
 		private $model1;
 		private $model2;
@@ -38,7 +37,7 @@ $require('EntryPoint', array(), function(){
 });
 
 // Model1.php
-$require('Model1', array(), function(){
+RPHP::_('Model1', array(), function(){
 	class Model1 {
 		public function getThing() {
 			return @\file_get_contents('http://google.com/');
@@ -50,7 +49,7 @@ $require('Model1', array(), function(){
 });
 
 // Model1Test.php
-$require('Model1Test', array(), function(){
+RPHP::_('Model1Test', array(), function(){
 	class Model1 {
 		public function getThing() {
 			return "copy of known good Google html";
@@ -62,7 +61,7 @@ $require('Model1Test', array(), function(){
 });
 
 // Model2.php
-$require('Model2', array(), function(){
+RPHP::_('Model2', array(), function(){
 	class Model2 {
 		private $helper;
 
@@ -80,7 +79,7 @@ $require('Model2', array(), function(){
 });
 
 // Helper.php
-$require('Helper', array(), function(){
+RPHP::_('Helper', array(), function(){
 	class Helper {
 		public function getInput() {
 			return $_REQUEST['input'];
@@ -92,7 +91,7 @@ $require('Helper', array(), function(){
 });
 
 // HelperTest.php
-$require('HelperTest', array(), function(){
+RPHP::_('HelperTest', array(), function(){
 	class Helper {
 		public function getInput() {
 			return 'goodthing';
@@ -104,22 +103,22 @@ $require('HelperTest', array(), function(){
 });
 
 // Composition root. Probably your main script.
-$require(array(), function()use($require, $test){
-	$EntryPoint = $require("EntryPoint");
+RPHP::_(array(), function()use($test){
+	$EntryPoint = RPHP::_("EntryPoint");
 
 	// Here is where you choose what to pass to your EntryPoint.
 	// In this case, we'll be passing real classes vs test classes.
 	if (!$test) {
 		// Here could be your normal code.
-		$Model1 = $require("Model1");
-		$Model2 = $require("Model2");
-		$Helper = $require("Helper");
+		$Model1 = RPHP::_("Model1");
+		$Model2 = RPHP::_("Model2");
+		$Helper = RPHP::_("Helper");
 		echo '<a href="?test=true">Test mode.</a><br>';
 	} else {
 		// And here could be your test code.
-		$Model1 = $require("Model1Test");
-		$Model2 = $require("Model2");
-		$Helper = $require("HelperTest");
+		$Model1 = RPHP::_("Model1Test");
+		$Model2 = RPHP::_("Model2");
+		$Helper = RPHP::_("HelperTest");
 		echo '<a href="?test=false">Prod mode.</a><br>';
 	}
 

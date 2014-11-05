@@ -1,7 +1,7 @@
 {
     "name": "sciactive/requirephp",
     "description": "An implementation of dependency injection (like RequireJS) in PHP.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "type": "library",
     "keywords": [
 		"dependency injection",
@@ -11,7 +11,7 @@
 		"amd"
 	],
     "homepage": "http://requirephp.org/",
-    "time": "2014-10-07",
+    "time": "2014-11-04",
     "license": "LGPL",
     "authors": [
         {
