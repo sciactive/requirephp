@@ -71,5 +71,29 @@ try {
 		echo '<p>This shouldn\'t have run!!</p>';
 	});
 } catch (RequireTooDeepException $e) {
+	RPHP::remove('circ1');
 	echo '<p>Circular dependencies don\'t crash the script!! Yay!! '.$e->getMessage().'</p>' ;
+}
+
+// Let's test alias and module removal.
+RPHP::_('removemodule', array(), function(){
+	echo '<p>Uh oh. Module removal failed. :(</p>';
+});
+RPHP::alias('removealias', 'removemodule');
+
+RPHP::removeAlias('removealias');
+RPHP::_(array('removealias'), function(){
+	echo '<p>Uh oh. Alias removal failed. :(</p>';
+});
+
+$failed = false;
+RPHP::remove('removemodule');
+RPHP::_(array('removemodule'), function(){
+	global $failed;
+	$failed = true;
+	return;
+});
+
+if (!$failed) {
+	echo '<p>Looks like alias and module removal passed! :)</p>';
 }
