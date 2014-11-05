@@ -71,7 +71,7 @@ try {
 		echo '<p>This shouldn\'t have run!!</p>';
 	});
 } catch (RequireTooDeepException $e) {
-	RPHP::remove('circ1');
+	RPHP::undef('circ1');
 	echo '<p>Circular dependencies don\'t crash the script!! Yay!! '.$e->getMessage().'</p>' ;
 }
 
@@ -81,13 +81,13 @@ RPHP::_('removemodule', array(), function(){
 });
 RPHP::alias('removealias', 'removemodule');
 
-RPHP::removeAlias('removealias');
+RPHP::undefAlias('removealias');
 RPHP::_(array('removealias'), function(){
 	echo '<p>Uh oh. Alias removal failed. :(</p>';
 });
 
 $failed = false;
-RPHP::remove('removemodule');
+RPHP::undef('removemodule');
 RPHP::_(array('removemodule'), function(){
 	global $failed;
 	$failed = true;

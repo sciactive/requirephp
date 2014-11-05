@@ -34,7 +34,7 @@ class RPHP {
 		RPHP::runFunctions();
 	}
 
-	public static function remove($name) {
+	public static function undef($name) {
 		$name = "$name";
 		if (empty($name))
 			return;
@@ -57,7 +57,7 @@ class RPHP {
 		RPHP::$aliases[$name] = $target;
 	}
 
-	public static function removeAlias($name) {
+	public static function undefAlias($name) {
 		$name = "$name";
 		if (empty($name))
 			return;
