@@ -5,7 +5,7 @@
  * An implementation of dependency injection and service location (like
  * RequireJS) in PHP. Written by Hunter Perrin for 2be.io.
  *
- * @version 1.1.1
+ * @version 1.1.3
  * @license https://www.gnu.org/licenses/lgpl.html
  * @author Hunter Perrin <hperrin@gmail.com>
  * @copyright SciActive.com
@@ -20,7 +20,7 @@ class RPHP {
 	private static $aliases = array();
 	private static $depth = 0;
 
-	public static function &_($arg1 = null, $arg2 = null, $arg3 = null) {
+	public static function _($arg1 = null, $arg2 = null, $arg3 = null) {
 		if (isset($arg1) && !isset($arg2) && !isset($arg3)) { // Calling require('name') to get the object.
 			$arg1 = RPHP::parseAlias($arg1);
 			if (!RPHP::runModule($arg1))
