@@ -3,7 +3,7 @@
  * RequirePHP
  *
  * An implementation of dependency injection and service location (like
- * RequireJS) in PHP. Written by Hunter Perrin for 2be.io.
+ * RequireJS) in PHP. Written by Hunter Perrin for SciActive.
  *
  * @version 1.1.3
  * @license https://www.gnu.org/licenses/lgpl.html
