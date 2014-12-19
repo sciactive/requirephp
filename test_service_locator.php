@@ -1,10 +1,10 @@
-<?php
+<?php namespace SciActive;
 // An example of how you could use RequirePHP as a service locator.
 
-require("require.php");
+require("src/R.php");
 
 // Define service.
-RPHP::_('service', array(), function(){
+R::_('service', array(), function(){
 	class service {
 		private $value = 0;
 
@@ -21,12 +21,12 @@ RPHP::_('service', array(), function(){
 });
 
 // Locate the service.
-RPHP::_(array('service'), function(service $service){
+R::_(array('service'), function(service $service){
 	$service->increment();
 });
 
 // Locate the service again.
-RPHP::_(array('service'), function(service $service){
+R::_(array('service'), function(service $service){
 	$service->increment();
 	echo 'You should see "2".<br>';
 	$service->printOut();

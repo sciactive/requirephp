@@ -7,13 +7,13 @@ An implementation of dependency injection and service locator (like RequireJS) i
 All you need to do is include the require.php file.
 
 ```php
-require("require.php");
+require("R.php");
 ```
 
 Now you can start giving code that requires a module, or modules, to run. This code will not run until all the required modules (in this case, only 'test') are available.
 
 ```php
-RPHP::_(array('test'), function($test){
+\SciActive\R::_(array('test'), function($test){
 	$test->value = '<p>Hello, world.</p>';
 });
 ```
@@ -21,7 +21,7 @@ RPHP::_(array('test'), function($test){
 You can define modules. This module has no dependencies, hence the empty array.
 
 ```php
-RPHP::_('test', array(), function(){
+\SciActive\R::_('test', array(), function(){
 	class test {
 		public $value;
 
@@ -39,13 +39,13 @@ RPHP::_('test', array(), function(){
 You can create aliases to modules (and other aliases).
 
 ```php
-RPHP::alias('testing', 'test');
+\SciActive\R::alias('testing', 'test');
 ```
 
 You can keep using the same instance in other code, using RequirePHP as a service locator. This function uses the alias from above.
 
 ```php
-RPHP::_(array('testing'), function($test){
+\SciActive\R::_(array('testing'), function($test){
 	$test->talk(); // Prints '<p>Hello, world.</p>'.
 });
 ```
@@ -53,7 +53,7 @@ RPHP::_(array('testing'), function($test){
 You can also retrieve modules outside of a closure. However, if this module is not available at the time you request it, RequirePHP will throw a RequireModuleFailedException. Such is the price of not using a closure.
 
 ```php
-$test = RPHP::_('test');
+$test = \SciActive\R::_('test');
 $test->talk(); // Prints '<p>Hello, world.</p>'.
 ```
 
