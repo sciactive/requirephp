@@ -64,3 +64,11 @@ The repository contains [an example](https://github.com/sciactive/requirephp/blo
 ## Dependency Injection
 
 The repository contains [an example](https://github.com/sciactive/requirephp/blob/master/test_dependency_injector.php) of using RequirePHP as a dependency injector.
+
+## Contacting the Developer
+
+There are several ways to contact RequirePHP's developer with your questions, concerns, comments, bug reports, or feature requests.
+
+- RequirePHP is part of [SciActive on Twitter](http://twitter.com/SciActive).
+- Bug reports, questions, and feature requests can be filed at the [issues page](https://github.com/sciactive/requirephp/issues).
+- You can directly [email Hunter Perrin](mailto:hunter@sciactive.com), the creator of RequirePHP.
