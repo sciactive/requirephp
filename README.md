@@ -4,7 +4,7 @@ An implementation of dependency injection and service locator (like RequireJS) i
 
 ## Getting Started
 
-All you need to do is include the require.php file.
+All you need to do is include the R.php file.
 
 ```php
 require("R.php");
