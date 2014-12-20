@@ -14,7 +14,7 @@ bower install https://github.com/sciactive/requirephp.git
 
 ## Getting Started
 
-All you need to do is include the R.php file.
+If you don't use an autoloader, all you need to do is include the R.php file.
 
 ```php
 require("R.php");
