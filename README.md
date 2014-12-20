@@ -2,6 +2,16 @@
 
 An implementation of dependency injection and service locator (like RequireJS) in PHP.
 
+## Installation
+
+You can install RequirePHP with Composer or Bower.
+
+```sh
+composer require sciactive/requirephp
+
+bower install https://github.com/sciactive/requirephp.git
+```
+
 ## Getting Started
 
 All you need to do is include the R.php file.
