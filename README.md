@@ -1,5 +1,7 @@
 # <img alt="logo" src="https://raw.githubusercontent.com/sciactive/2be-extras/master/logo/product-icon-40-bw.png" align="top" /> RequirePHP
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/sciactive/requirephp.svg?style=flat)](https://packagist.org/packages/sciactive/requirephp) [![License](https://img.shields.io/packagist/l/sciactive/requirephp.svg?style=flat)](https://packagist.org/packages/sciactive/requirephp) [![Total Downloads](https://img.shields.io/packagist/dt/sciactive/requirephp.svg?style=flat)](https://packagist.org/packages/sciactive/requirephp) [![Open Issues](https://img.shields.io/github/issues/sciactive/requirephp.svg?style=flat)](https://github.com/sciactive/requirephp/issues)
+
 An implementation of dependency injection and service locator (like RequireJS) in PHP.
 
 ## Installation
