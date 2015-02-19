@@ -16,16 +16,16 @@ bower install https://github.com/sciactive/requirephp.git
 
 ## Getting Started
 
-If you don't use an autoloader, all you need to do is include the R.php file.
+If you don't use an autoloader, all you need to do is include the RequirePHP.php file.
 
 ```php
-require("R.php");
+require("RequirePHP.php");
 ```
 
 Now you can start giving code that requires a module, or modules, to run. This code will not run until all the required modules (in this case, only 'test') are available.
 
 ```php
-\SciActive\R::_(array('test'), function($test){
+\SciActive\RequirePHP::_(array('test'), function($test){
 	$test->value = '<p>Hello, world.</p>';
 });
 ```
@@ -33,7 +33,7 @@ Now you can start giving code that requires a module, or modules, to run. This c
 You can define modules. This module has no dependencies, hence the empty array.
 
 ```php
-\SciActive\R::_('test', array(), function(){
+\SciActive\RequirePHP::_('test', array(), function(){
 	class test {
 		public $value;
 
@@ -51,13 +51,13 @@ You can define modules. This module has no dependencies, hence the empty array.
 You can create aliases to modules (and other aliases).
 
 ```php
-\SciActive\R::alias('testing', 'test');
+\SciActive\RequirePHP::alias('testing', 'test');
 ```
 
 You can keep using the same instance in other code, using RequirePHP as a service locator. This function uses the alias from above.
 
 ```php
-\SciActive\R::_(array('testing'), function($test){
+\SciActive\RequirePHP::_(array('testing'), function($test){
 	$test->talk(); // Prints '<p>Hello, world.</p>'.
 });
 ```
@@ -65,7 +65,7 @@ You can keep using the same instance in other code, using RequirePHP as a servic
 You can also retrieve modules outside of a closure. However, if this module is not available at the time you request it, RequirePHP will throw a RequireModuleFailedException. Such is the price of not using a closure.
 
 ```php
-$test = \SciActive\R::_('test');
+$test = \SciActive\RequirePHP::_('test');
 $test->talk(); // Prints '<p>Hello, world.</p>'.
 ```
 

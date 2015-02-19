@@ -5,11 +5,11 @@
 // Try giving the query string ?input=badthing to this script in prod mode.
 // Also try turning off your network connection, so the script can't reach Google.
 
-require("src/R.php");
+require("src/RequirePHP.php");
 $test = $_REQUEST['test'] == "true";
 
 // EntryPoint.php
-R::_('EntryPoint', array(), function(){
+RequirePHP::_('EntryPoint', array(), function(){
 	class EntryPoint {
 		private $model1;
 		private $model2;
@@ -37,7 +37,7 @@ R::_('EntryPoint', array(), function(){
 });
 
 // Model1.php
-R::_('Model1', array(), function(){
+RequirePHP::_('Model1', array(), function(){
 	class Model1 {
 		public function getThing() {
 			return @\file_get_contents('http://google.com/');
@@ -49,7 +49,7 @@ R::_('Model1', array(), function(){
 });
 
 // Model1Test.php
-R::_('Model1Test', array(), function(){
+RequirePHP::_('Model1Test', array(), function(){
 	class Model1 {
 		public function getThing() {
 			return "copy of known good Google html";
@@ -61,7 +61,7 @@ R::_('Model1Test', array(), function(){
 });
 
 // Model2.php
-R::_('Model2', array(), function(){
+RequirePHP::_('Model2', array(), function(){
 	class Model2 {
 		private $helper;
 
@@ -79,7 +79,7 @@ R::_('Model2', array(), function(){
 });
 
 // Helper.php
-R::_('Helper', array(), function(){
+RequirePHP::_('Helper', array(), function(){
 	class Helper {
 		public function getInput() {
 			return $_REQUEST['input'];
@@ -91,7 +91,7 @@ R::_('Helper', array(), function(){
 });
 
 // HelperTest.php
-R::_('HelperTest', array(), function(){
+RequirePHP::_('HelperTest', array(), function(){
 	class Helper {
 		public function getInput() {
 			return 'goodthing';
@@ -103,21 +103,21 @@ R::_('HelperTest', array(), function(){
 });
 
 // Composition root. Probably your main script.
-R::_(array(), function()use($test){
-	$EntryPoint = R::_("EntryPoint");
+RequirePHP::_(array(), function()use($test){
+	$EntryPoint = RequirePHP::_("EntryPoint");
 
 	// Here is where you choose what to pass to your EntryPoint.
 	// In this case, we'll be passing real classes vs test classes.
 	if (!$test) {
 		// Here could be your normal code.
-		$Model1 = R::_("Model1");
-		$Model2 = R::_("Model2");
-		$Helper = R::_("Helper");
+		$Model1 = RequirePHP::_("Model1");
+		$Model2 = RequirePHP::_("Model2");
+		$Helper = RequirePHP::_("Helper");
 	} else {
 		// And here could be your test code.
-		$Model1 = R::_("Model1Test");
-		$Model2 = R::_("Model2");
-		$Helper = R::_("HelperTest");
+		$Model1 = RequirePHP::_("Model1Test");
+		$Model2 = RequirePHP::_("Model2");
+		$Helper = RequirePHP::_("HelperTest");
 	}
 
 	echo 'This script checks two thing: the "input" request var, and the result of a request to http://google.com/.<br>';
